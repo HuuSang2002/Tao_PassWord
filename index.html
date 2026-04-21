@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Password Forge - Trình tạo mật khẩu siêu cấp</title>
+  
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>
+            <span>⚡</span> Password Forge
+        </h1>
+        <div style="text-align: center;">
+            <div class="sub">Tùy chỉnh chính xác số lượng ký tự</div>
+        </div>
+
+        <!-- Điều khiển tổng độ dài (tự động tổng hợp) -->
+        <div class="length-group">
+            <div class="length-header">
+                <label>🔐 Tổng độ dài mật khẩu</label>
+                <div class="length-value" id="totalLengthDisplay">12</div>
+            </div>
+            <input type="range" id="totalLengthSlider" min="4" max="40" value="12" step="1">
+            <div style="font-size: 0.7rem; color:#7e8aa8; margin-top: 8px; text-align: center;">⚡ Kéo thanh trượt → tự
+                động cân bằng số lượng</div>
+        </div>
+
+        <!-- Khu vực tinh chỉnh số lượng từng loại ký tự -->
+        <div class="counters-section">
+            <div class="section-title">
+                <i>🎛️</i> <span>Chọn số lượng cụ thể từng loại</span>
+            </div>
+            <div class="counter-grid">
+                <!-- chữ thường (lowercase) -->
+                <div class="counter-item">
+                    <div class="counter-label">
+                        <div class="badge">🔡</div>
+                        <span>Chữ thường (a-z)</span>
+                    </div>
+                    <div class="counter-control">
+                        <button class="dec" data-type="lower">–</button>
+                        <span class="count-value" id="lowerCount">4</span>
+                        <button class="inc" data-type="lower">+</button>
+                    </div>
+                </div>
+                <!-- chữ hoa -->
+                <div class="counter-item">
+                    <div class="counter-label">
+                        <div class="badge">🔠</div>
+                        <span>Chữ hoa (A-Z)</span>
+                    </div>
+                    <div class="counter-control">
+                        <button class="dec" data-type="upper">–</button>
+                        <span class="count-value" id="upperCount">3</span>
+                        <button class="inc" data-type="upper">+</button>
+                    </div>
+                </div>
+                <!-- số -->
+                <div class="counter-item">
+                    <div class="counter-label">
+                        <div class="badge">🔢</div>
+                        <span>Số (0-9)</span>
+                    </div>
+                    <div class="counter-control">
+                        <button class="dec" data-type="number">–</button>
+                        <span class="count-value" id="numberCount">3</span>
+                        <button class="inc" data-type="number">+</button>
+                    </div>
+                </div>
+                <!-- ký tự đặc biệt -->
+                <div class="counter-item">
+                    <div class="counter-label">
+                        <div class="badge">✨</div>
+                        <span>Ký tự đặc biệt</span>
+                    </div>
+                    <div class="counter-control">
+                        <button class="dec" data-type="symbol">–</button>
+                        <span class="count-value" id="symbolCount">2</span>
+                        <button class="inc" data-type="symbol">+</button>
+                    </div>
+                </div>
+            </div>
+            <div id="warningMsg" class="warning-message"></div>
+        </div>
+
+        <button class="gen-btn" id="generateBtn">✨ Tạo mật khẩu siêu cấp ✨</button>
+
+        <div class="result-area">
+            <input type="text" id="passwordOutput" readonly placeholder="Mật khẩu của bạn sẽ hiện tại đây">
+            <button class="copy-btn" id="copyBtn">Sao chép</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
