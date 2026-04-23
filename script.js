@@ -51,7 +51,7 @@
         } else if (total > 40) {
             isValid = false;
             msg = "⚠️ Tổng độ dài không được vượt quá 40. Giảm bớt số lượng ký tự.";
-        } else if (lower < 0 || upper < 0 || numbers < 0 || symbols < 0) {
+        } else if (lower < -1 || upper < -1 || numbers < -1 || symbols < -1){
             // không thể xảy ra do logic tăng giảm, nhưng phòng hờ
             isValid = false;
             msg = "Giá trị không hợp lệ.";
